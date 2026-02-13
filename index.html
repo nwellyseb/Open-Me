@@ -7,10 +7,8 @@
 body {
   margin:0;
   padding:0;
-  min-height:100vh;
-  width:100%;
-  background: linear-gradient(to bottom, #ffe0f5, #fff0f5);
   font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ffe0f5, #fff0f5);
   overflow-x:hidden;
   overflow-y:auto;
   position: relative;
@@ -45,26 +43,27 @@ h1 {
   cursor:pointer;
   transition: background 0.3s;
   text-align:left;
+  overflow:hidden;
 }
 .folder:hover { background:#ffe0f5; }
 .folder-title { font-weight:bold; font-size:1.2em; }
 .folder-content {
   max-height:0;
   overflow:hidden;
-  transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+  transition: max-height 0.5s ease, padding 0.3s ease;
   padding-top:0;
   white-space: pre-wrap;
 }
 .folder.open .folder-content {
-  max-height: none; /* show full height */
-  overflow: visible;
+  max-height:1000px; /* large enough for any content */
   padding-top:10px;
 }
 
 .heart, .confetti {
-  position:absolute;
+  position: fixed; /* fixed so scrolling doesn’t stop them */
   font-size:24px;
   pointer-events:none;
+  z-index: 999;
 }
 
 /* Valentine question */
@@ -165,7 +164,7 @@ function createFloating(type,count,text){
 }
 function animateFall(el){
   let top=-50;
-  const end=document.body.scrollHeight+50;
+  const end=window.innerHeight + window.scrollY + 50;
   function frame(){
     top+=2;
     el.style.top=top+'px';
