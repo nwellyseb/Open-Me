@@ -4,25 +4,23 @@
 <meta charset="UTF-8">
 <title>HAPPY VALENTINES DAY MAHAL KO💗☺️</title>
 <style>
-html, body {
+body {
   margin:0;
   padding:0;
-  height:100%;
+  min-height:100vh;
   width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
   background: linear-gradient(to bottom, #ffe0f5, #fff0f5);
   font-family: Arial, sans-serif;
   overflow-x:hidden;
+  overflow-y:auto;
+  position: relative;
 }
 
 h1 {
   color:#ff1493;
   font-size:2.5em;
   text-align:center;
-  margin-bottom:30px;
+  margin:20px 0;
   animation:bounce 1.5s infinite;
   text-shadow: 2px 2px 5px #00000050;
 }
@@ -34,7 +32,7 @@ h1 {
 .container {
   width:90%;
   max-width:600px;
-  text-align:center;
+  margin:0 auto;
 }
 
 .folder {
@@ -67,10 +65,10 @@ h1 {
 
 /* Valentine question */
 #valentine-box {
-  margin-top:40px;
+  margin:40px auto 80px auto;
   text-align:center;
   position:relative;
-  z-index:3;
+  max-width:400px;
 }
 #valentine-box h2 {
   color:#ff1493;
@@ -94,7 +92,6 @@ h1 {
 #yes-btn { background:#ff69b4; position:relative; }
 #no-btn { background:#ff1493; position:absolute; left:50%; top:60px; transform:translateX(-50%); }
 #try-msg { position:absolute; top:-40px; width:100%; text-align:center; color:#ff1493; display:none; font-size:1.2em; }
-
 </style>
 </head>
 <body>
@@ -147,7 +144,7 @@ Darling may get tired of the situation but not when you hold my hand🥺 wag mok
 // Folder toggle
 function toggleFolder(folder){ folder.classList.toggle('open'); }
 
-// Floating hearts/confetti
+// Hearts/confetti
 const colors = ['#ff69b4','#ff1493','#ffb6c1','#db7093','#ffdd00','#ff9900'];
 function createFloating(type,count,text){
   for(let i=0;i<count;i++){
@@ -164,7 +161,7 @@ function createFloating(type,count,text){
 }
 function animateFall(el){
   let top=-50;
-  const end=window.innerHeight+50;
+  const end=document.body.scrollHeight+50;
   function frame(){
     top+=2;
     el.style.top=top+'px';
@@ -177,7 +174,7 @@ function animateFall(el){
 createFloating('heart',20,'❤️');
 createFloating('confetti',30,'🎉');
 
-// Valentine Question
+// Valentine buttons
 function attachButtons(){
   const yesBtn = document.getElementById('yes-btn');
   const noBtn = document.getElementById('no-btn');
