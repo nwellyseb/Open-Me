@@ -2,56 +2,125 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Surprise!</title>
+  <title>HAPPY VALENTINES DAY MAHAL KO💗☺️</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      min-height: 200vh; /* makes the page scrollable */
+      min-height: 200vh;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
       background: linear-gradient(to bottom, #ffe0f5, #fff0f5);
       font-family: Arial, sans-serif;
       overflow-x: hidden;
+      padding-top: 50px;
     }
     h1 {
-      position: sticky;
-      top: 40vh;
-      z-index: 2;
       color: #ff1493;
-      font-size: 3em;
+      font-size: 2.5em;
       text-align: center;
+      margin-bottom: 30px;
       animation: bounce 1.5s infinite;
+      text-shadow: 2px 2px 5px #00000050;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+      50% { transform: translateY(-10px); }
     }
-    .heart, .confetti, .kiss {
+    .folder {
+      width: 90%;
+      max-width: 600px;
+      background: #fff0f5;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      margin: 10px 0;
+      padding: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .folder:hover {
+      background: #ffe0f5;
+    }
+    .folder-title {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .folder-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+      padding-top: 0;
+    }
+    .folder.open .folder-content {
+      max-height: 1000px; /* large enough for content */
+      padding-top: 10px;
+    }
+
+    .heart, .confetti {
       position: absolute;
       font-size: 24px;
       animation: fall linear infinite;
     }
     .heart { color: #ff69b4; }
     .confetti { color: #ffdd00; }
-    .kiss { color: #ff1493; font-size: 20px; }
     @keyframes fall {
       0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
-    @keyframes rise {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
-    }
   </style>
 </head>
 <body>
-  <h1>Hey! This is just for you 💖</h1>
+  <h1>HAPPY VALENTINES DAY MAHAL KO💗☺️</h1>
+
+  <!-- Folders for highlights -->
+  <div class="folder" onclick="toggleFolder(this)">
+    <div class="folder-title">Highlight 1: End Game 🥺💗</div>
+    <div class="folder-content">
+      Darling koooooo if binasa mo na to alam ko inaway na kita🥺🥺… kase aawayin kita 🥺 I’ll try na act like I was really hurt po para medjo and I know mahihirapan ako neto 🥺but I’ll do it anyways hahaha hahanap ako mapag awayan magaling ako don eh 😁😝😝😝😜🤪 hahahah I love you😙
+      <br><br>
+      Anyways, this message should be just short mahal, I just really want to let you know that you’ve been my world and you mean the world to me 🥺lately tuloy tuloy away natin 🥺And I am so afraid na mawala ka po🥺...
+    </div>
+  </div>
+
+  <div class="folder" onclick="toggleFolder(this)">
+    <div class="folder-title">Highlight 2: Pahinga ko 🥺</div>
+    <div class="folder-content">
+      Darling kahit minsan sobrang pagod ko minsan nawawala man siya kapag kausap kita eh🥺 sobrang thankful ako kay God na dumating ka saken🥺 that I met you🥺 If there was a best scene in a movie, you were the best part of them all .. Darling mahal na mahal kita 🥺I miss you 🥺
+    </div>
+  </div>
+
+  <div class="folder" onclick="toggleFolder(this)">
+    <div class="folder-title">Highlight 3: Sinta ko 🥺</div>
+    <div class="folder-content">
+      Ikaw lang po sinta ko ikaw lang mahal ko and you’ll always be alone po🥺 ding di kita lolokohin mahal as I promised Tito with my words po🥺 kaya wag mo rin ako lokohin lalo ikaw sobrang ganda mo pa naman🥺 dami magkakagusto sayo sobraaa🥺 makakatikim talaga sila ng punch ko hehehe mahal na mahal kita sobraaaa🥺
+    </div>
+  </div>
+
+  <div class="folder" onclick="toggleFolder(this)">
+    <div class="folder-title">Highlight 4: Panata po 🥺</div>
+    <div class="folder-content">
+      You’re my Panata po, I was so committed sayo mahal ko pera na lang kulang luluhod nako sayo eh hahahah🥺 mahal koo magiging mayaman akoo wait moko🥺 wag ka mapagod with my low’s po🥺 help me pray help me make it po🥺I love you mahal ko sobraaaa
+    </div>
+  </div>
+
+  <div class="folder" onclick="toggleFolder(this)">
+    <div class="folder-title">Highlight 5: Iba ka ❤️💗</div>
+    <div class="folder-content">
+      And lastly, please know you’re different ❤️💗 sinabi ko na before but I’ll say it again, mahal kita sobra that even pinakamalambot kong ego napalabas moo🥺🥺 And I don’t have regrets with that mahal🥺 
+      <br><br>
+      Darling may get tired of the situation but not when you hold my hand🥺 wag moko iiwan mahal🥺 hindi na din kita iiwan mahal koo🥺 sorry sa mga away natin ahh😭 I love you sobraaaaaa
+    </div>
+  </div>
+
   <script>
+    function toggleFolder(folder) {
+      folder.classList.toggle('open');
+    }
+
+    // Hearts and confetti animation
     const colors = ['#ff69b4','#ff1493','#ffb6c1','#db7093','#ffdd00','#ff9900'];
     
-    // Hearts
     for(let i=0;i<20;i++){
       const heart = document.createElement('div');
       heart.className='heart';
@@ -63,7 +132,6 @@
       document.body.appendChild(heart);
     }
 
-    // Confetti
     for(let i=0;i<30;i++){
       const confetti = document.createElement('div');
       confetti.className='confetti';
@@ -74,23 +142,6 @@
       confetti.textContent='🎉';
       document.body.appendChild(confetti);
     }
-
-    // Kisses appear on scroll
-    window.addEventListener('scroll', () => {
-      const kiss = document.createElement('div');
-      kiss.className = 'kiss';
-      kiss.style.left = Math.random()*100 + 'vw';
-      kiss.style.top = window.scrollY + window.innerHeight + 'px'; // start just below view
-      kiss.textContent = '💋';
-      document.body.appendChild(kiss);
-
-      kiss.style.animation = `rise ${2 + Math.random()*2}s linear forwards`;
-
-      // Remove element after animation
-      setTimeout(() => {
-        kiss.remove();
-      }, 4000);
-    });
   </script>
 </body>
 </html>
