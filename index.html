@@ -1,215 +1,191 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>HAPPY VALENTINES DAY MAHAL KO💗☺️</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 250vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: linear-gradient(to bottom, #ffe0f5, #fff0f5);
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      padding-top: 50px;
-    }
-    h1 {
-      color: #ff1493;
-      font-size: 2.5em;
-      text-align: center;
-      margin-bottom: 30px;
-      animation: bounce 1.5s infinite;
-      text-shadow: 2px 2px 5px #00000050;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .folder {
-      width: 90%;
-      max-width: 600px;
-      background: #fff0f5;
-      border: 2px solid #ff69b4;
-      border-radius: 10px;
-      margin: 10px 0;
-      padding: 15px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .folder:hover {
-      background: #ffe0f5;
-    }
-    .folder-title {
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-    .folder-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out, padding 0.3s ease-out;
-      padding-top: 0;
-      white-space: pre-wrap; /* preserves line breaks */
-    }
-    .folder.open .folder-content {
-      max-height: 2000px;
-      padding-top: 10px;
-    }
+<meta charset="UTF-8">
+<title>HAPPY VALENTINES DAY MAHAL KO💗☺️</title>
+<style>
+body {
+  margin:0;
+  padding:0;
+  min-height:250vh;
+  background: linear-gradient(to bottom, #ffe0f5, #fff0f5);
+  font-family: Arial, sans-serif;
+  overflow-x:hidden;
+  padding-top:50px;
+  position: relative;
+}
 
-    .heart, .confetti {
-      position: absolute;
-      font-size: 24px;
-      animation: fall linear infinite;
-    }
-    .heart { color: #ff69b4; }
-    .confetti { color: #ffdd00; }
-    @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
+h1 {
+  color:#ff1493;
+  font-size:2.5em;
+  text-align:center;
+  margin-bottom:30px;
+  animation:bounce 1.5s infinite;
+  text-shadow: 2px 2px 5px #00000050;
+}
+@keyframes bounce {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
 
-    /* Valentine Question */
-    #valentine-box {
-      margin-top:50px;
-      text-align:center;
-      z-index:3;
-      position:relative;
-    }
-    #valentine-box h2 {
-      color: #ff1493;
-      font-size: 2em;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 3px #00000050;
-    }
-    #valentine-box button {
-      padding:10px 20px;
-      font-size:1.2em;
-      color:white;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      margin:10px;
-    }
-    #yes-btn { background:#ff69b4; }
-    #no-btn {
-      background:#ff1493;
-      position:absolute;
-      left:50%;
-      transform:translateX(-50%);
-      top:60px;
-    }
-  </style>
+.folder {
+  width: 90%;
+  max-width:600px;
+  background:#fff0f5;
+  border:2px solid #ff69b4;
+  border-radius:10px;
+  margin:10px 0;
+  padding:15px;
+  cursor:pointer;
+  transition: background 0.3s;
+}
+.folder:hover { background:#ffe0f5; }
+.folder-title { font-weight:bold; font-size:1.2em; }
+.folder-content {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.5s ease-out,padding 0.3s ease-out;
+  padding-top:0;
+  white-space: pre-wrap;
+}
+.folder.open .folder-content { max-height:2000px; padding-top:10px; }
+
+/* Valentine question */
+#valentine-box {
+  margin-top:50px;
+  text-align:center;
+  z-index:3;
+  position:relative;
+}
+#valentine-box h2 {
+  color:#ff1493;
+  font-size:2em;
+  margin-bottom:20px;
+  text-shadow:1px 1px 3px #00000050;
+}
+#valentine-box button {
+  padding:10px 20px;
+  font-size:1.2em;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  margin:10px;
+}
+#yes-btn { background:#ff69b4; }
+#no-btn {
+  background:#ff1493;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:60px;
+}
+
+/* Floating hearts/confetti */
+.heart, .confetti {
+  position:absolute;
+  font-size:24px;
+  pointer-events:none;
+}
+</style>
 </head>
 <body>
-  <h1>HAPPY VALENTINES DAY MAHAL KO💗☺️</h1>
 
-  <!-- Highlight 1 -->
-  <div class="folder" onclick="toggleFolder(this)">
-    <div class="folder-title">Highlight 1: End Game 🥺💗</div>
-    <div class="folder-content">
-Darling koooooo if binasa mo na to alam ko inaway na kita🥺🥺… kase aawayin kita 🥺 I’ll try na act like I was really hurt po para medjo and I know mahihirapan ako neto 🥺but I’ll do it anyways hahaha hahanap ako mapag awayan magaling ako don eh 😁😝😝😝😜🤪 hahahah I love you😙
+<h1>HAPPY VALENTINES DAY MAHAL KO💗☺️</h1>
 
-Anyways, this message should be just short mahal, I just really want to let you know that you’ve been my world and you mean the world to me 🥺lately tuloy tuloy away natin 🥺And I am so afraid na mawala ka po🥺 alam ko sobrang lala ko rin magalit sayo and I really feel bad about it po🥺.
-    </div>
-  </div>
+<!-- Folders -->
+<div class="folder" onclick="toggleFolder(this)">
+  <div class="folder-title">Highlight 1: End Game 🥺💗</div>
+  <div class="folder-content">Darling koooooo if binasa mo na to alam ko inaway na kita🥺🥺… [full message here]</div>
+</div>
 
-  <!-- Highlight 2 -->
-  <div class="folder" onclick="toggleFolder(this)">
-    <div class="folder-title">Highlight 2: Pahinga ko 🥺</div>
-    <div class="folder-content">
-Una sa lahat darling you’re my end game po🥺 and I hope you would really have the same thought🥺 mahal na mahal kita po💗 Sobraaa.. Darling while I was typing pansin ko nag English na naman ako wala na grammar yan pero hayaan mo na 🥺 wala naman ako sa trabaho🤪😝😝hahahah I love you sobra po🥺
+<div class="folder" onclick="toggleFolder(this)">
+  <div class="folder-title">Highlight 2: Pahinga ko 🥺</div>
+  <div class="folder-content">[full message]</div>
+</div>
 
-Second, ikaw po pahinga ko🥺.. Darling kahit minsan sobrang pagod ko minsan nawawala man siya kapag kausap kita eh🥺 sobrang thankful ako kay God na dumating ka saken🥺 that I met you🥺 If there was a best scene in a movie, you were the best part of them all .. Darling mahal na mahal kita 🥺I miss you 🥺
-    </div>
-  </div>
+<div class="folder" onclick="toggleFolder(this)">
+  <div class="folder-title">Highlight 3: Sinta ko 🥺</div>
+  <div class="folder-content">[full message]</div>
+</div>
 
-  <!-- Highlight 3 -->
-  <div class="folder" onclick="toggleFolder(this)">
-    <div class="folder-title">Highlight 3: Sinta ko 🥺</div>
-    <div class="folder-content">
-Ikaw lang po sinta ko ikaw lang mahal ko and you’ll always be alone po🥺 ding di kita lolokohin mahal as I promised Tito with my words po🥺 kaya wag mo rin ako lokohin lalo ikaw sobrang ganda mo pa naman🥺 dami magkakagusto sayo sobraaa🥺 makakatikim talaga sila ng punch ko hehehe mahal na mahal kita sobraaaa🥺
-    </div>
-  </div>
+<div class="folder" onclick="toggleFolder(this)">
+  <div class="folder-title">Highlight 4: Panata po 🥺</div>
+  <div class="folder-content">[full message]</div>
+</div>
 
-  <!-- Highlight 4 -->
-  <div class="folder" onclick="toggleFolder(this)">
-    <div class="folder-title">Highlight 4: Panata po 🥺</div>
-    <div class="folder-content">
-You’re my Panata po, I was so committed sayo mahal ko pera na lang kulang luluhod nako sayo eh hahahah🥺 mahal koo magiging mayaman akoo wait moko🥺 wag ka mapagod with my low’s po🥺 help me pray help me make it po🥺I love you mahal ko sobraaaa
-    </div>
-  </div>
+<div class="folder" onclick="toggleFolder(this)">
+  <div class="folder-title">Highlight 5: Iba ka ❤️💗</div>
+  <div class="folder-content">[full message]</div>
+</div>
 
-  <!-- Highlight 5 -->
-  <div class="folder" onclick="toggleFolder(this)">
-    <div class="folder-title">Highlight 5: Iba ka ❤️💗</div>
-    <div class="folder-content">
-And lastly, please know you’re different ❤️💗 sinabi ko na before but I’ll say it again, mahal kita sobra that even pinakamalambot kong ego napalabas moo🥺🥺 And I don’t have regrets with that mahal🥺 
+<!-- Valentine Question -->
+<div id="valentine-box">
+  <h2>Will you be my Valentine Forever po?🥺</h2>
+  <button id="yes-btn">Yes</button>
+  <button id="no-btn">No</button>
+</div>
 
-Darling may get tired of the situation but not when you hold my hand🥺 wag moko iiwan mahal🥺 hindi na din kita iiwan mahal koo🥺 sorry sa mga away natin ahh😭 I love you sobraaaaaa
-    </div>
-  </div>
+<script>
+// Folder toggle
+function toggleFolder(folder){ folder.classList.toggle('open'); }
 
-  <!-- Valentine Question -->
-  <div id="valentine-box">
-    <h2>Will you be my Valentine Forever po?🥺</h2>
-    <button id="yes-btn">Yes</button>
-    <button id="no-btn">No</button>
-  </div>
-
-  <script>
-    // Folder toggle
-    function toggleFolder(folder) {
-      folder.classList.toggle('open');
+// Hearts and confetti animation
+const colors = ['#ff69b4','#ff1493','#ffb6c1','#db7093','#ffdd00','#ff9900'];
+function createFloating(type,count,text){
+  for(let i=0;i<count;i++){
+    const el=document.createElement('div');
+    el.className=type;
+    el.textContent=text;
+    el.style.color=colors[Math.floor(Math.random()*colors.length)];
+    el.style.left=Math.random()*100+'vw';
+    el.style.fontSize=(12+Math.random()*24)+'px';
+    el.style.top='-50px';
+    document.body.appendChild(el);
+    animateFall(el);
+  }
+}
+function animateFall(el){
+  const duration = 3 + Math.random()*3;
+  const start = -50;
+  const end = window.innerHeight + 50;
+  let top=start;
+  function frame(){
+    top += 2; // speed
+    el.style.top=top+'px';
+    el.style.transform='rotate('+(top*4)+'deg)';
+    if(top<end) requestAnimationFrame(frame);
+    else {
+      top=-50;
+      el.style.left=Math.random()*100+'vw';
+      frame();
     }
+  }
+  frame();
+}
+createFloating('heart',20,'❤️');
+createFloating('confetti',30,'🎉');
 
-    // Hearts and confetti animation
-    const colors = ['#ff69b4','#ff1493','#ffb6c1','#db7093','#ffdd00','#ff9900'];
-    
-    for(let i=0;i<20;i++){
-      const heart = document.createElement('div');
-      heart.className='heart';
-      heart.style.left=Math.random()*100+'vw';
-      heart.style.fontSize=(12+Math.random()*24)+'px';
-      heart.style.color=colors[Math.floor(Math.random()*colors.length)];
-      heart.style.animationDuration=(3+Math.random()*3)+'s';
-      heart.textContent='❤️';
-      document.body.appendChild(heart);
-    }
+// Valentine Question
+const noBtn = document.getElementById('no-btn');
+const yesBtn = document.getElementById('yes-btn');
+const box = document.getElementById('valentine-box');
 
-    for(let i=0;i<30;i++){
-      const confetti = document.createElement('div');
-      confetti.className='confetti';
-      confetti.style.left=Math.random()*100+'vw';
-      confetti.style.fontSize=(8+Math.random()*12)+'px';
-      confetti.style.color=colors[Math.floor(Math.random()*colors.length)];
-      confetti.style.animationDuration=(2+Math.random()*3)+'s';
-      confetti.textContent='🎉';
-      document.body.appendChild(confetti);
-    }
+function moveNoButton(){
+  const maxX = window.innerWidth-noBtn.offsetWidth;
+  const maxY = window.innerHeight-noBtn.offsetHeight;
+  const randomX=Math.random()*maxX;
+  const randomY=Math.random()*maxY+window.scrollY;
+  noBtn.style.left=randomX+'px';
+  noBtn.style.top=randomY+'px';
+  noBtn.style.transform='translateX(0)';
+}
+noBtn.addEventListener('mouseover',moveNoButton);
+noBtn.addEventListener('click',moveNoButton);
 
-    // Valentine Question buttons
-    const noBtn = document.getElementById('no-btn');
-    const yesBtn = document.getElementById('yes-btn');
-    const box = document.getElementById('valentine-box');
-
-    noBtn.addEventListener('mouseover', moveNoButton);
-    noBtn.addEventListener('click', moveNoButton);
-
-    function moveNoButton() {
-      const maxX = window.innerWidth - noBtn.offsetWidth;
-      const maxY = window.innerHeight - noBtn.offsetHeight;
-      const randomX = Math.random() * maxX;
-      const randomY = Math.random() * maxY + window.scrollY; // adjust for scroll
-      noBtn.style.left = randomX + 'px';
-      noBtn.style.top = randomY + 'px';
-      noBtn.style.transform = 'translateX(0)';
-    }
-
-    yesBtn.addEventListener('click', () => {
-      box.innerHTML = `<h2>Yay! 😍💗 I'm so happy, mahal ko!🥰</h2>`;
-    });
-  </script>
+yesBtn.addEventListener('click',()=>{
+  box.innerHTML=`<h2>Yay! 😍💗 I'm so happy, mahal ko!🥰</h2>`;
+});
+</script>
 </body>
 </html>
