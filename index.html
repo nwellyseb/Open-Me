@@ -72,7 +72,7 @@ h1 {
   cursor:pointer;
   margin:10px;
 }
-#yes-btn { background:#ff69b4; }
+#yes-btn { background:#ff69b4; position:relative; }
 #no-btn {
   background:#ff1493;
   position:absolute;
@@ -96,27 +96,33 @@ h1 {
 <!-- Folders -->
 <div class="folder" onclick="toggleFolder(this)">
   <div class="folder-title">Highlight 1: End Game 🥺💗</div>
-  <div class="folder-content">Darling koooooo if binasa mo na to alam ko inaway na kita🥺🥺… [full message here]</div>
+  <div class="folder-content">Darling koooooo if binasa mo na to alam ko inaway na kita🥺🥺… kase aawayin kita 🥺 I’ll try na act like I was really hurt po para medjo and I know mahihirapan ako neto 🥺but I’ll do it anyways hahaha hahanap ako mapag awayan magaling ako don eh 😁😝😝😝😜🤪 hahahah I love you😙
+
+Anyways, this message should be just short mahal, I just really want to let you know that you’ve been my world and you mean the world to me 🥺lately tuloy tuloy away natin 🥺And I am so afraid na mawala ka po🥺 alam ko sobrang lala ko rin magalit sayo and I really feel bad about it po🥺.</div>
 </div>
 
 <div class="folder" onclick="toggleFolder(this)">
   <div class="folder-title">Highlight 2: Pahinga ko 🥺</div>
-  <div class="folder-content">[full message]</div>
+  <div class="folder-content">Una sa lahat darling you’re my end game po🥺 and I hope you would really have the same thought🥺 mahal na mahal kita po💗 Sobraaa.. Darling while I was typing pansin ko nag English na naman ako wala na grammar yan pero hayaan mo na 🥺 wala naman ako sa trabaho🤪😝😝hahahah I love you sobra po🥺
+
+Second, ikaw po pahinga ko🥺.. Darling kahit minsan sobrang pagod ko minsan nawawala man siya kapag kausap kita eh🥺 sobrang thankful ako kay God na dumating ka saken🥺 that I met you🥺 If there was a best scene in a movie, you were the best part of them all .. Darling mahal na mahal kita 🥺I miss you 🥺</div>
 </div>
 
 <div class="folder" onclick="toggleFolder(this)">
   <div class="folder-title">Highlight 3: Sinta ko 🥺</div>
-  <div class="folder-content">[full message]</div>
+  <div class="folder-content">Ikaw lang po sinta ko ikaw lang mahal ko and you’ll always be alone po🥺 ding di kita lolokohin mahal as I promised Tito with my words po🥺 kaya wag mo rin ako lokohin lalo ikaw sobrang ganda mo pa naman🥺 dami magkakagusto sayo sobraaa🥺 makakatikim talaga sila ng punch ko hehehe mahal na mahal kita sobraaaa🥺</div>
 </div>
 
 <div class="folder" onclick="toggleFolder(this)">
   <div class="folder-title">Highlight 4: Panata po 🥺</div>
-  <div class="folder-content">[full message]</div>
+  <div class="folder-content">You’re my Panata po, I was so committed sayo mahal ko pera na lang kulang luluhod nako sayo eh hahahah🥺 mahal koo magiging mayaman akoo wait moko🥺 wag ka mapagod with my low’s po🥺 help me pray help me make it po🥺I love you mahal ko sobraaaa</div>
 </div>
 
 <div class="folder" onclick="toggleFolder(this)">
   <div class="folder-title">Highlight 5: Iba ka ❤️💗</div>
-  <div class="folder-content">[full message]</div>
+  <div class="folder-content">And lastly, please know you’re different ❤️💗 sinabi ko na before but I’ll say it again, mahal kita sobra that even pinakamalambot kong ego napalabas moo🥺🥺 And I don’t have regrets with that mahal🥺 
+
+Darling may get tired of the situation but not when you hold my hand🥺 wag moko iiwan mahal🥺 hindi na din kita iiwan mahal koo🥺 sorry sa mga away natin ahh😭 I love you sobraaaaaa</div>
 </div>
 
 <!-- Valentine Question -->
@@ -146,12 +152,11 @@ function createFloating(type,count,text){
   }
 }
 function animateFall(el){
-  const duration = 3 + Math.random()*3;
-  const start = -50;
-  const end = window.innerHeight + 50;
+  const start=-50;
+  const end=window.innerHeight+50;
   let top=start;
   function frame(){
-    top += 2; // speed
+    top+=2;
     el.style.top=top+'px';
     el.style.transform='rotate('+(top*4)+'deg)';
     if(top<end) requestAnimationFrame(frame);
@@ -166,26 +171,51 @@ function animateFall(el){
 createFloating('heart',20,'❤️');
 createFloating('confetti',30,'🎉');
 
-// Valentine Question
-const noBtn = document.getElementById('no-btn');
-const yesBtn = document.getElementById('yes-btn');
-const box = document.getElementById('valentine-box');
+// Valentine Question buttons
+function attachButtons(){
+  const noBtn = document.getElementById('no-btn');
+  const yesBtn = document.getElementById('yes-btn');
+  const box = document.getElementById('valentine-box');
 
-function moveNoButton(){
-  const maxX = window.innerWidth-noBtn.offsetWidth;
-  const maxY = window.innerHeight-noBtn.offsetHeight;
-  const randomX=Math.random()*maxX;
-  const randomY=Math.random()*maxY+window.scrollY;
-  noBtn.style.left=randomX+'px';
-  noBtn.style.top=randomY+'px';
-  noBtn.style.transform='translateX(0)';
+  // Keep Yes button fixed
+  yesBtn.style.position='relative';
+  yesBtn.style.margin='10px';
+
+  function moveNoButton(){
+    const maxX = window.innerWidth-noBtn.offsetWidth-20;
+    const maxY = window.innerHeight-noBtn.offsetHeight-20+window.scrollY;
+    let randomX=Math.random()*maxX;
+    let randomY=Math.random()*maxY;
+
+    const yesRect = yesBtn.getBoundingClientRect();
+    if(Math.abs(randomY-yesRect.top)<50 && Math.abs(randomX-yesRect.left)<100){
+      randomY += 60;
+    }
+
+    noBtn.style.left=randomX+'px';
+    noBtn.style.top=randomY+'px';
+    noBtn.style.transform='translateX(0)';
+  }
+
+  noBtn.addEventListener('mouseover', moveNoButton);
+  noBtn.addEventListener('click', ()=>{
+    box.innerHTML=`<h2>Try again 🥺</h2>`;
+    setTimeout(()=>{
+      box.innerHTML = `
+        <h2>Will you be my Valentine Forever po?🥺</h2>
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No</button>
+      `;
+      attachButtons();
+    },1500);
+  });
+
+  yesBtn.addEventListener('click', ()=>{
+    box.innerHTML=`<h2>Yay! 😍💗 I'm so happy, mahal ko!🥰</h2>`;
+  });
 }
-noBtn.addEventListener('mouseover',moveNoButton);
-noBtn.addEventListener('click',moveNoButton);
 
-yesBtn.addEventListener('click',()=>{
-  box.innerHTML=`<h2>Yay! 😍💗 I'm so happy, mahal ko!🥰</h2>`;
-});
+attachButtons();
 </script>
 </body>
 </html>
