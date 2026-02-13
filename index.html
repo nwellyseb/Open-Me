@@ -7,38 +7,52 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 200vh; /* makes the page scrollable */
       display: flex;
       justify-content: center;
-      align-items: center;
-      background-color: #fff0f5;
+      align-items: flex-start;
+      background: linear-gradient(to bottom, #ffe0f5, #fff0f5);
       font-family: Arial, sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
     }
     h1 {
-      position: relative;
+      position: sticky;
+      top: 40vh;
       z-index: 2;
       color: #ff1493;
       font-size: 3em;
       text-align: center;
+      animation: bounce 1.5s infinite;
     }
-    .heart {
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .heart, .confetti, .kiss {
       position: absolute;
-      color: #ff69b4;
       font-size: 24px;
-      animation: fall 4s linear infinite;
+      animation: fall linear infinite;
     }
+    .heart { color: #ff69b4; }
+    .confetti { color: #ffdd00; }
+    .kiss { color: #ff1493; font-size: 20px; }
     @keyframes fall {
       0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
   <h1>Hey! This is just for you 💖</h1>
   <script>
-    const colors = ['#ff69b4','#ff1493','#ffb6c1','#ff69b4','#db7093'];
-    for(let i=0;i<30;i++){
+    const colors = ['#ff69b4','#ff1493','#ffb6c1','#db7093','#ffdd00','#ff9900'];
+    
+    // Hearts
+    for(let i=0;i<20;i++){
       const heart = document.createElement('div');
       heart.className='heart';
       heart.style.left=Math.random()*100+'vw';
@@ -48,6 +62,35 @@
       heart.textContent='❤️';
       document.body.appendChild(heart);
     }
+
+    // Confetti
+    for(let i=0;i<30;i++){
+      const confetti = document.createElement('div');
+      confetti.className='confetti';
+      confetti.style.left=Math.random()*100+'vw';
+      confetti.style.fontSize=(8+Math.random()*12)+'px';
+      confetti.style.color=colors[Math.floor(Math.random()*colors.length)];
+      confetti.style.animationDuration=(2+Math.random()*3)+'s';
+      confetti.textContent='🎉';
+      document.body.appendChild(confetti);
+    }
+
+    // Kisses appear on scroll
+    window.addEventListener('scroll', () => {
+      const kiss = document.createElement('div');
+      kiss.className = 'kiss';
+      kiss.style.left = Math.random()*100 + 'vw';
+      kiss.style.top = window.scrollY + window.innerHeight + 'px'; // start just below view
+      kiss.textContent = '💋';
+      document.body.appendChild(kiss);
+
+      kiss.style.animation = `rise ${2 + Math.random()*2}s linear forwards`;
+
+      // Remove element after animation
+      setTimeout(() => {
+        kiss.remove();
+      }, 4000);
+    });
   </script>
 </body>
 </html>
