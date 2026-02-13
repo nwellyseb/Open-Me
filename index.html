@@ -51,11 +51,15 @@ h1 {
 .folder-content {
   max-height:0;
   overflow:hidden;
-  transition:max-height 0.5s ease-out,padding 0.3s ease-out;
+  transition: max-height 0.5s ease-out, padding 0.3s ease-out;
   padding-top:0;
   white-space: pre-wrap;
 }
-.folder.open .folder-content { max-height:2000px; padding-top:10px; }
+.folder.open .folder-content {
+  max-height: none; /* show full height */
+  overflow: visible;
+  padding-top:10px;
+}
 
 .heart, .confetti {
   position:absolute;
